@@ -1,0 +1,14 @@
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.SERVICE.deps.json
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.SERVICE.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.SERVICE.pdb
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.DATA.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.REPO.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.DATA.pdb
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\bin\Release\netcoreapp3.1\GS.REPO.pdb
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.csprojAssemblyReference.cache
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.AssemblyInfoInputs.cache
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.AssemblyInfo.cs
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.csproj.CoreCompileInputs.cache
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.csproj.CopyComplete
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.SERVICE\obj\Release\netcoreapp3.1\GS.SERVICE.pdb

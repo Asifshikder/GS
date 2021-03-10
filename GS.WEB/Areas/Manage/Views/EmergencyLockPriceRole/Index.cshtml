@@ -1,0 +1,80 @@
+﻿
+
+@model IEnumerable<GS.WEB.Areas.Manage.Models.EmergencyLockPriceRoleVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Emergencylock Price Role</a></li>
+                            <li><a href="/Manage/EmergencylockPriceRole/Index">Index</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6"><div class="text-left"><strong class="card-title">Emergencylock Price Roles</strong></div></div>
+                                <div class="col-md-6"><div class="text-right"><a href="/Manage/EmergencylockPriceRole/Create" class="btn btn-outline-primary">Add New</a></div></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Operation</th>
+                                        <th>Price Increase</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.OperationStylePriceRoleName</td>
+                                            <td>@item.PriceIncrease</td>
+                                            <td>
+                                                <a href="/Manage/EmergencylockPriceRole/Edit?id=@item.Id" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="/Manage/EmergencylockPriceRole/Delete?id=@item.Id" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,400 @@
+﻿@model GS.WEB.Areas.Manage.Models.Catelog.ProductViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .custom-textboxcolor {
+        border-color: #ff0000;
+    }
+</style>
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Create</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Product</a></li>
+                            <li><a href="/Manage/Product/Index">Index</a></li>
+                            <li><a>Create</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new product</strong>
+                        </div>
+                        <div class="card-body">
+                            <form href="/Manage/Product/Create" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-center" style="background-color:cadetblue;border-radius:3px">
+                                            <p class="text-white">Information</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Title</label>
+                                                <input type="text" asp-for="Title" class="form-control custom-textboxcolor" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Price</label>
+                                                <input type="text" asp-for="Price" class="form-control custom-textboxcolor" required>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Category</label>
+                                                @Html.DropDownListFor(s => s.CategoryId, (SelectList)ViewBag.catlist, "Select category", new { @class = "form-control custom-textboxcolor" })
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group" hidden id="divsubcat">
+                                                <label class=" form-control-label">sub Category</label>
+                                                @Html.DropDownListFor(s => s.SubCategoryId, (SelectList)ViewBag.subcatlist, "Select sub category", new { @class = "form-control custom-textboxcolor" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group" hidden id="divmodel">
+                                                <label class=" form-control-label">Model</label>
+                                                @Html.DropDownListFor(s => s.ModelId, (SelectList)ViewBag.modellist, "Select model", new { @class = "form-control custom-textboxcolor" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group" hidden id="divos">
+                                                <label class=" form-control-label">Operation Style</label>
+                                                @Html.DropDownListFor(s => s.OperationStyleId, (SelectList)ViewBag.operationlist, "Select operation style", new { @class = "form-control custom-textboxcolor" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-center" style="background-color:cadetblue;border-radius:3px">
+                                            <p class="text-white">Documents</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Description</label>
+                                                <textarea asp-for="Description" class="form-control" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Technical Specification</label>
+                                                <textarea asp-for="TechnicalSpec" class="form-control" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-center" style="background-color:cadetblue;border-radius:3px">
+                                            <p class="text-white">Documents</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Documentation file</label>
+                                                <input type="file" asp-for="DocumentationFile1File" class="form-control custom-textboxcolor">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Documentation file</label>
+                                                <input type="file" asp-for="DocumentationFile2File" class="form-control custom-textboxcolor">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-center" style="background-color:cadetblue;border-radius:3px">
+                                            <p class="text-white">Images</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Primary Image</label>
+                                                <input type="file" asp-for="PrimaryImageFile" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Image 1</label>
+                                                <input type="file" asp-for="Image1File">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Image 2</label>
+                                                <input type="file" asp-for="Image2File">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Image 3</label>
+                                                <input type="file" asp-for="Image3File">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Image 4</label>
+                                                <input type="file" asp-for="Image4File">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="previewpi" hidden>
+                                            <p>Primary Image</p>
+                                            <img id="piimg" src="#" height="100" width="150" />
+                                            <button id="rmvpi">Remove</button>
+                                        </div>
+                                        <div id="previewi1" hidden>
+                                            <p>Image 1</p>
+                                            <img id="i1img" src="#" height="100" width="150" />
+                                            <button id="rmvi1">Remove</button>
+                                        </div>
+                                        <div id="previewi2" hidden>
+                                            <p>Image 2</p>
+                                            <img id="i2img" src="#" height="100" width="150" />
+                                            <button id="rmvi2">Remove</button>
+                                        </div>
+                                        <div id="previewi3" hidden>
+                                            <p>Image 3</p>
+                                            <img id="i3img" src="#" height="100" width="150" />
+                                            <button id="rmvi3">Remove</button>
+                                        </div>
+                                        <div id="previewi4" hidden>
+                                            <p>Image 4</p>
+                                            <img id="i4img" src="#" height="100" width="150" />
+                                            <button id="rmvi4">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Manage/Product/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#Description').summernote();
+    });
+    $(document).ready(function () {
+        $('#TechnicalSpec').summernote();
+    });
+
+    function primaryimagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#previewpi").removeAttr("hidden");
+                $("#previewpi").show();
+                $('#piimg').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+   
+    $("#PrimaryImageFile").change(function () {
+        primaryimagePreview(this);
+    });
+    $("#rmvpi").click(function (e) {
+        e.preventDefault();
+        $("#PrimaryImageFile").val("");
+        $('#piimg').attr('src', "#");
+        $("#previewpi").hide();
+
+    });
+
+    function image1Preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#previewi1").removeAttr("hidden");
+                $("#previewi1").show();
+                $('#i1img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#Image1File").change(function () {
+        image1Preview(this);
+    });
+    $("#rmvi1").click(function (e) {
+        e.preventDefault();
+        $("#Image1File").val("");
+        $('#i1img').attr('src', "#");
+        $("#previewi1").hide();
+
+
+    });
+
+    function image2Preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#previewi2").removeAttr("hidden");
+                $("#previewi2").show();
+                $('#i2img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#Image2File").change(function () {
+        image2Preview(this);
+    });
+    $("#rmvi2").click(function (e) {
+        e.preventDefault();
+        $("#Image2File").val("");
+        $('#i2img').attr('src', "#");
+        $("#previewi2").hide();
+
+    });
+
+    function image3Preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#previewi3").removeAttr("hidden");
+                $("#previewi3").show();
+                $('#i3img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#Image3File").change(function () {
+        image3Preview(this);
+    });
+    $("#rmvi3").click(function (e) {
+        e.preventDefault();
+        $("#Image3File").val("");
+        $('#i3img').attr('src', "#");
+        $("#previewi3").hide();
+
+    });
+
+    function image4Preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#previewi4").removeAttr("hidden");
+                $("#previewi4").show();
+                $('#i4img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#Image4File").change(function () {
+        image4Preview(this);
+    });
+    $("#rmvi4").click(function (e) {
+        e.preventDefault();
+        $("#Image4File").val("");
+        $('#i4img').attr('src', "#");
+        $("#previewi4").hide();
+
+    });
+
+    $("#CategoryId").change(function () {
+        var categoryId = $("#CategoryId").val();
+        var url1 = "/Manage/Product/GetSubCategory";
+
+        if (categoryId !== null) {
+            $.getJSON(url1, { categoryId: categoryId }, function (data) {
+                var item = "";
+                item += '<option value="">Select sub category</option>';
+                $("#SubCategoryId").empty();
+                $.each(data, function (i, locks) {
+                    item += '<option value="' + locks.value + '">' + locks.text + '</option>'
+                });
+                $("#SubCategoryId").html(item);
+            });
+            $("#divsubcat").removeAttr("hidden");
+            $("#divsubcat").show();
+        }
+        if (categoryId === "1") {
+            $("#divmodel").removeAttr("hidden");
+            $("#divmodel").show();
+            $("#divos").removeAttr("hidden");
+            $("#divos").show();
+        }
+        if (categoryId === "") {
+            $("#divmodel").hide();
+            $("#divos").hide();
+            $("#divsubcat").hide();
+            $("#ModelId").val(null);
+            $("#SubCategoryId").val(null);
+            $("#OperationStyleId").val(null);
+        }
+        if (categoryId !== "1") {
+            $("#divmodel").hide();
+            $("#divos").hide();
+            $("#ModelId").val(null);
+            $("#OperationStyleId").val(null);
+        }
+
+    });
+
+</script>
+  }

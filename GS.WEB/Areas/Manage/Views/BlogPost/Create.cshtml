@@ -1,0 +1,86 @@
+﻿@model GS.WEB.Areas.Manage.Models.Blog.BlogPostViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Create</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Blog Post</a></li>
+                            <li><a href="/Blog/BlogPost/Index">Index</a></li>
+                            <li><a>Create</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new Blog Post</strong>
+                        </div>
+                        <div class="card-body">
+                            <form href="/Blog/BlogPost/Create" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class=" form-control-label">Blog Category</label>
+                                    <select asp-for="BlogCategoryId" class="form-control" asp-items="ViewBag.catlist"></select>
+                                    <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Title</label>
+                                    <input type="text" asp-for="Title" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Blog primary image</label>
+                                    <input type="file" asp-for="PrimaryImageFile" class="form-control" required>
+                                </div>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="IsFeatured" /> @Html.DisplayNameFor(model => model.IsFeatured)
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Description</label>
+                                    <textarea asp-for="Description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Blog/BlogPost/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $('#Description').summernote({
+            tabsize: 2,
+            height: 500
+        });
+    </script>
+}

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Implementation\CustomPort\EmergencyLockPriceRoleService.cs" />
+    <Compile Remove="Implementation\CustomPort\ExtraRemotePriceRoleService.cs" />
+    <Compile Remove="Interface\CustomPort\IEmergencyLockPriceRoleService.cs" />
+    <Compile Remove="Interface\CustomPort\IExtraRemotePriceRoleService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GS.DATA\GS.DATA.csproj" />
+    <ProjectReference Include="..\GS.REPO\GS.REPO.csproj" />
+  </ItemGroup>
+
+</Project>

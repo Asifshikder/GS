@@ -1,0 +1,65 @@
+﻿@model GS.DATA.Entities.CMS.Contact
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="products" style="background-color:#42929d">
+    <div class="container" style="margin-top:50px">
+        <hr class="offset-lg">
+        <hr class="offset-lg">
+
+        <div style="background-color:#f8f6f6;padding:10px">
+            <div class="text-center">
+                <h2>WE COME TO YOU!</h2>
+                <p>In the current situation, we have adapted our visitor operations and now carry out Corona-safe home visits without any physical contact.   if you want to hear our Garage Door expert Daniel tell you more about how it works.</p>
+            </div>
+            <div>
+                <form asp-controller="Contact" asp-action="CreateNew" method="post" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                        <label class="control-label">Subject</label>
+                        <input asp-for="Subject" class="form-control" placeholder="Subject" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Name</label>
+                        <input asp-for="FullName" class="form-control" placeholder="Name" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Email</label>
+                        <input asp-for="Email" class="form-control" placeholder="Email" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="Phone" required />
+                    </div>
+                    <div class="col-md-12">
+                        <label class="control-label">Description</label>
+                        <textarea asp-for="Description" class="form-control" required></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Contact reason</label>
+                        @Html.DropDownListFor(s => s.ContactReasonId, (SelectList)ViewBag.reasons, "Select reason", new { @class = "form-control", @required = "required" })
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Attachments</label>
+                        <input asp-for="Attachment" type="file" placeholder="Subject" />
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" id="checktermspolicy" required />  Jag har läst <a href="/Home/TermsAndConditions" target="_blank">villkoren</a> och godkänner att ni hanterar mina uppgifter
+                            </label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="btn-padding">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-block btn-primary"><i class="fa fa-arrow-right"></i>Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,76 @@
+﻿@model GS.DATA.Entities.Delivery.DeliveryFee
+@{
+    ViewData["Title"] = "Update";
+}
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Update</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Product type</a></li>
+                            <li><a href="/Manage/DeliveryFee/Index">Index</a></li>
+                            <li><a>Update</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Update Product Type</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Manage" asp-controller="DeliveryFee" asp-action="Update" method="post">
+                                @Html.HiddenFor(s => s.Id)
+                                <div class="form-group">
+                                    <label class=" form-control-label">Zone</label>
+                                    @Html.DropDownListFor(s => s.ZoneId, (SelectList)ViewBag.zoneList, "Select zone", new { @class = "form-control" })
+
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Door count</label>
+                                    <input type="number" asp-for="DoorCount" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Fee</label>
+                                    <input type="number" asp-for="Fee" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Description</label>
+                                    <input type="text" asp-for="Description" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Manage/DeliveryFee/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                    <a href="/Manage/DeliveryFee/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

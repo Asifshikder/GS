@@ -1,0 +1,64 @@
+﻿@model GS.DATA.Entities.Catelog.ProductType
+@{
+    ViewData["Title"] = "Create";
+}
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Update</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Product type</a></li>
+                            <li><a href="/Manage/ProductType/Index">Index</a></li>
+                            <li><a>Update</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Update Product Type</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Manage" asp-controller="ProductType" asp-action="Update" method="post">
+                                @Html.HiddenFor(s=>s.Id)
+                                <div class="form-group">
+                                    <label class=" form-control-label">Name</label>
+                                    <input type="text" asp-for="TypeName" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Parent category(Is only for subcategory)</label>
+                                    @Html.DropDownListFor(s => s.ParentType, (SelectList)ViewBag.parentlist, "Select category", new { @class = "form-control" })
+
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Manage/ProductType/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

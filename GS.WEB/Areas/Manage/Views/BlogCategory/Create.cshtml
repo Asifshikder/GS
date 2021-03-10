@@ -1,0 +1,59 @@
+﻿@model GS.DATA.Entities.Blog.BlogCategory
+
+@{
+    ViewData["Title"] = "Create";
+}
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Create</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Blog Category</a></li>
+                            <li><a href="/Blog/BlogCategory/Index">Index</a></li>
+                            <li><a>Create</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new Blog Category</strong>
+                        </div>
+                        <div class="card-body">
+                            <form href="/Blog/BlogCategory/Create" method="post">
+                                <div class="form-group">
+                                    <label class=" form-control-label">Name</label>
+                                    <input type="text" asp-for="Name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Blog/BlogCategory/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

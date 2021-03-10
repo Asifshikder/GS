@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\CustomPort\EmergencyLockPriceRole.cs" />
+    <Compile Remove="Entities\CustomPort\ExtraRemoteControlPriceRole.cs" />
+    <Compile Remove="Map\CustomPort\EmergencyLockPriceRoleMap.cs" />
+    <Compile Remove="Map\CustomPort\ExtraRemoteControlPriceRoleMap.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
+  </ItemGroup>
+
+</Project>

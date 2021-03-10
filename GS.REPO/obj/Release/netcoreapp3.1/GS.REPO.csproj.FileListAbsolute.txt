@@ -1,0 +1,15 @@
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.REPO.deps.json
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.REPO.runtimeconfig.json
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.REPO.runtimeconfig.dev.json
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.REPO.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.REPO.pdb
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.DATA.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\bin\Release\netcoreapp3.1\GS.DATA.pdb
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.csprojAssemblyReference.cache
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.AssemblyInfoInputs.cache
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.AssemblyInfo.cs
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.csproj.CoreCompileInputs.cache
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.csproj.CopyComplete
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.dll
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.pdb
+C:\Users\Asifs\Dropbox\GarageSpecialisten\GarageSpecialisten\GarageSpecialisten\GS.REPO\obj\Release\netcoreapp3.1\GS.REPO.genruntimeconfig.cache

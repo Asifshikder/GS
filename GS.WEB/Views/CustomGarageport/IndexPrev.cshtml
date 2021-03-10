@@ -1,0 +1,247 @@
+﻿@model GS.DATA.Entities.CustomPort.BaseGaragePort
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="garage-about-area section-padding-100-0">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+                <div class="about-thumbnail mb-100">
+                    <img src="~/Contents/RAL9016.jpg" />
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="about-content mb-100">
+                    <div class="section-heading">
+                        <h3>@Model.Title</h3>
+                        <p style="color:rebeccapurple">@Model.Description</p>
+                        Price incld VAT:
+                        <div id="diivprice">
+                            <h4 style="color:black">@Model.BasePrice</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">Width(in mm)</label>
+                                <input id="widthrole" placeholder="" class="form-control" value="1850" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Height(in mm)</label>
+                                <input id="heightrole" placeholder="" class="form-control" value="1850" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Pattern</label>
+                                @Html.DropDownList("patternrole", (SelectList)ViewBag.patternlist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Color</label>
+                                @Html.DropDownList("colorrole", (SelectList)ViewBag.colorlist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Surface layer</label>
+                                @Html.DropDownList("surfacelayerrole", (SelectList)ViewBag.surfacelayerlist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Operation</label>
+                                @Html.DropDownList("operationrole", (SelectList)ViewBag.operationstylelist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6" hidden id="divemergency">
+                                <label class="control-label">Accessories : Emergency Lock</label>
+
+                                @Html.DropDownList("emergencylockrole", (SelectList)ViewBag.emergencylocklist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6" hidden id="divextralock">
+                                <label class="control-label">Accessories : EExtra remote control</label>
+
+                                @Html.DropDownList("extraremoterole", (SelectList)ViewBag.extraremotelist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Exterior handle with lock</label>
+                                @Html.DropDownList("hendlelockrole", (SelectList)ViewBag.handlelocklist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Accessories: Windows</label>
+                                @Html.DropDownList("windowsrole", (SelectList)ViewBag.accessorieswindowslist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6" hidden id="divnumberofwindows">
+                                <label class="control-label">Number of Windows</label>
+                                @Html.DropDownList("numberOfwindowsrole", (SelectList)ViewBag.nUmberOfWindowslist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Installation</label>
+                                @Html.DropDownList("installationrole", (SelectList)ViewBag.instalationlist, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6" hidden id="divOldDoor">
+                                <label class="control-label">Dismantling & removal of old gate</label>
+                                @Html.DropDownList("oldDoorrole", (SelectList)ViewBag.oldDoorlist, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#searchbtn").click(function (e) {
+                $("#mdlsearch").modal('show');
+            });
+
+        });
+        function CalculatePrice() {
+            var url = "/CustomGarageport/CalculatePrice";
+            var width = $("#widthrole").val();
+            var height = $("#heightrole").val();
+            var pattern = $("#patternrole").val();
+            var color = $("#colorrole").val();
+            var surfacelayer = $("#surfacelayerrole").val();
+            var operation = $("#operationrole").val();
+            var emergencylock = $("#emergencylockrole").val();
+            var extraremote = $("#extraremoterole").val();
+            var hendlelock = $("#hendlelockrole").val();
+            var windows = $("#windowsrole").val();
+            var numberOfwindows= $("#numberOfwindowsrole").val();
+            var installation = $("#installationrole").val();
+            var oldDoor = $("#oldDoorrole").val();
+            var model = {
+                width: width,  height: height, pattern: pattern, color: color, surfacelayer: surfacelayer, operation: operation, emergencylock: emergencylock, extraremote: extraremote,
+                hendlelock: hendlelock, windows: windows, numberOfwindows: numberOfwindows, installation: installation, oldDoor: oldDoor
+            }
+            $.getJSON(url, {pattern: pattern, color: color, surfacelayer: surfacelayer, operation: operation, emergencylock: emergencylock, extraremote: extraremote,hendlelock: hendlelock, windows: windows, numberOfwindows: numberOfwindows, installation: installation, oldDoor: oldDoor }, function (data) {
+                var item = "";
+                $("#diivprice").empty();
+                item = '<h4 style="color:black">'+data+'</h4>';
+
+                $("#diivprice").html(item);
+            });
+        }
+
+        $("#patternrole").change(function () {
+            var patternrole = $("#patternrole").val();
+            var url = "/CustomGarageport/GetSurfaceLayerRole";
+
+            $.getJSON(url, { patternrole: patternrole }, function (data) {
+                var item = "";
+                $("#surfacelayerrole").empty();
+                $.each(data, function (i, locks) {
+                    item += '<option value="' + locks.value + '">' + locks.text + '</option>'
+                });
+                $("#surfacelayerrole").html(item);
+            });
+            CalculatePrice();
+        });
+        $("#installationrole").change(function () {
+            CalculatePrice();
+            var windowsrole = $("#installationrole").val();
+
+            if (windowsrole !== "3") {
+                $("#divOldDoor").removeAttr("hidden");
+                $("#divOldDoor").show();
+            }
+            else {
+                $("#divOldDoor").hide();
+                $("#oldDoorrole").val(null);
+            }
+
+        });
+
+        $("#colorrole").change(function () {
+            CalculatePrice();
+        });
+        $("#surfacelayerrole").change(function () {
+            CalculatePrice();
+        });
+        $("#emergencylockrole").change(function () {
+            CalculatePrice();
+        });
+        $("#extraremoterole").change(function () {
+            CalculatePrice();
+        });
+        $("#hendlelockrole").change(function () {
+            CalculatePrice();
+        });
+        $("#numberOfwindowsrole").change(function () {
+            CalculatePrice();
+        });
+
+        $("#oldDoorrole").change(function () {
+            CalculatePrice();
+        });
+
+        $("#windowsrole").change(function () {
+            var windowsrole = $("#windowsrole").val();
+            var url = "/CustomGarageport/GetNumberOfWindowsRole";
+
+            if (windowsrole !== "1") {
+                $("#divnumberofwindows").removeAttr("hidden");
+                $("#divnumberofwindows").show();
+
+
+            }
+            else {
+                $("#divnumberofwindows").hide();
+                $("#numberOfwindowsrole").val(null);
+            }
+
+            $.getJSON(url, { windowsrole: windowsrole }, function (data) {
+                var item = "";
+                $("#numberOfwindowsrole").empty();
+                $.each(data, function (i, locks) {
+                    item += '<option value="' + locks.value + '">' + locks.text + '</option>'
+                });
+                $("#numberOfwindowsrole").html(item);
+            });
+            CalculatePrice();
+        });
+
+
+
+        $("#operationrole").change(function () {
+            var operationrole = $("#operationrole").val();
+            var url1 = "/CustomGarageport/GetEmergencyLockRole";
+            var url2 = "/CustomGarageport/GetExtraRemoteRole";
+            var url3 = "/CustomGarageport/CheckOperationRoleField";
+
+            $.getJSON(url3, { operationrole: operationrole }, function (data) {
+                var item = "";
+                if (data == true) {
+
+                    $("#divemergency").removeAttr("hidden");
+                    $("#divextralock").removeAttr("hidden");
+                    $("#divemergency").show();
+                    $("#divextralock").show();
+                }
+                else {
+                    $("#divemergency").hide();
+                    $("#divextralock").hide();
+                }
+            });
+            $.getJSON(url1, { operationrole: operationrole }, function (data) {
+                var item = "";
+                $("#emergencylockrole").empty();
+                $.each(data, function (i, locks) {
+                    item += '<option value="' + locks.value + '">' + locks.text + '</option>'
+                });
+                $("#emergencylockrole").html(item);
+            });
+            $.getJSON(url2, { operationrole: operationrole }, function (data) {
+                var item = "";
+                $("#extraremoterole").empty();
+                $.each(data, function (i, locks) {
+                    item += '<option value="' + locks.value + '">' + locks.text + '</option>'
+                });
+                $("#extraremoterole").html(item);
+            });
+            if (operationrole == "2") {
+                $("#emergencylockrole").val(null);
+                $("#extraremoterole").val(null);
+            }
+            CalculatePrice();
+        });
+    </script>
+}

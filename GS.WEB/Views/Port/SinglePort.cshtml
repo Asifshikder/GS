@@ -1,0 +1,128 @@
+﻿@model GS.DATA.Entities.Catelog.Product
+@{
+    ViewData["Title"] = "SinglePort";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<hr class="offset-lg hidden-xs">
+<section class="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-5 white no-padding">
+
+                <div class="carousel-product" data-count="5" data-current="1">
+
+                    <div class="items" style="height:370px">
+                        <button class="btn btn-control" data-direction="right"> <i class="ion-ios-arrow-right"></i></button>
+                        <button class="btn btn-control" data-direction="left"> <i class="ion-ios-arrow-left"></i></button>
+
+
+                        <div class="item center" data-marker="1">
+                            <img src="@Url.Content(Model.PrimaryImage)" class="background" />
+                        </div>
+
+                        <div class="item" data-marker="2">
+                            <img src="@Url.Content(Model.Image1)"  class="background" />
+                        </div>
+
+                        <div class="item" data-marker="3">
+                            <img src="@Url.Content(Model.Image2)"  class="background" />
+                        </div>
+                        <div class="item" data-marker="4">
+                            <img src="@Url.Content(Model.Image3)"  class="background" />
+                        </div>
+                        <div class="item" data-marker="5">
+                            <img src="@Url.Content(Model.Image4)"  class="background" />
+                        </div>
+
+                    </div>
+
+
+                    <ul class="markers">
+                        <li data-marker="1" class="active"></li>
+                        <li data-marker="2"></li>
+                        <li data-marker="3"></li>
+                        <li data-marker="4"></li>
+                        <li data-marker="5"></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm-7 col-md-7 no-padding-xs">
+                <div class="caption">
+                    <h1 class="text-themecolor">Customize Compact +</h1>
+                    <div>@Html.Raw(Model.Description)</div>
+                    Totalt inkl. moms.:
+                    <div id="diivprice">
+                        <h4 style="color:black">@Model.Price</h4>
+                    </div>
+                    <hr class="offset-md hidden-sm">
+                    <hr class="offset-sm visible-sm">
+                    <hr class="offset-xs visible-sm">
+                   
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Quantity</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control input-sm" placeholder="Qty" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="text-right">
+                                <button class="btn btn-primary"> <i class="ion-bag"></i> Add to cart</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="offset-sm hidden-xs">
+
+        <div class="row">
+            <div class="col-sm-12 white sm-padding">
+
+
+
+                <div class="tabset">
+                    <input type="radio" name="tabset" id="tab1" aria-controls="Produktbeskrivning" checked>
+                    <label for="tab1">
+                        Produktbeskrivning
+                    </label>
+                    <input type="radio" name="tabset" id="tab2" aria-controls="Specifikationer">
+                    <label for="tab2">
+                        Specifikationer
+                    </label>
+                    <input type="radio" name="tabset" id="tab3" aria-controls="Dokument">
+                    <label for="tab3">
+                        Dokument
+                    </label>
+
+                    <div class="tab-panels">
+                        <section id="Produktbeskrivning" class="tab-panel">
+                            @Html.Raw(Model.Description)
+                        </section>
+                        <section id="Specifikationer" class="tab-panel">
+                            @Html.Raw(Model.TechnicalSpec)
+                        </section>
+                        <section id="Dokument" class="tab-panel">
+                            <ul>
+                                <li><a href="@Url.Content(Model.DocumentationFile1)">@Model.DocumentationFile1</a></li>
+                                <li><a href="@Url.Content(Model.DocumentationFile2)">@Model.DocumentationFile2</a></li>
+                            </ul>
+                        </section>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

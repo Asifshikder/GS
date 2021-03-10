@@ -1,0 +1,108 @@
+﻿@model GS.DATA.Entities.Catelog.Product
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    .custom-textboxcolor {
+        border-color: #ff0000;
+        background-color: #e8f3eb;
+    }
+</style>
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Delete</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Product</a></li>
+                            <li><a href="/Manage/Product/Index">Index</a></li>
+                            <li><a>Delete</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new product</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Manage" asp-controller="Product" asp-action="DeleteConfirm" method="post" >
+                                @Html.HiddenFor(s => s.Id)
+                                @Html.HiddenFor(s => s.PrimaryImage)
+                                @Html.HiddenFor(s => s.Image1)
+                                @Html.HiddenFor(s => s.Image2)
+                                @Html.HiddenFor(s => s.Image3)
+                                @Html.HiddenFor(s => s.Image4)
+                                @Html.HiddenFor(s => s.DocumentationFile1)
+                                @Html.HiddenFor(s => s.DocumentationFile2)
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Title</label>
+                                                <input type="text" asp-for="Title" class="form-control custom-textboxcolor" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Description</label>
+                                                <textarea asp-for="Description" class="form-control custom-textboxcolor" disabled></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Price</label>
+                                                <input type="text" asp-for="Price" class="form-control custom-textboxcolor" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Description</label>
+                                                <textarea asp-for="Description" class="form-control custom-textboxcolor" disabled></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Technical Specification</label>
+                                                <textarea asp-for="TechnicalSpec" class="form-control custom-textboxcolor" disabled></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <a href="/Manage/Product/Index" class="btn btn-warning">Cancel</a>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

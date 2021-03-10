@@ -1,0 +1,79 @@
+﻿@model PaginatedList<GS.DATA.Entities.Catelog.Product>
+@{
+    ViewData["Title"] = "Portar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr class="offset-lg">
+<div class="tagshead btn-themecolor">
+    <div style="padding:20px">
+        <div class="container">
+
+            <div class="text-center">
+                <h1 class="hero-text"><b>Portar</b></h1>
+            </div>
+            <p style="color:white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+
+            <button class="btn btn-primary" onclick="readmore()" id="rdbtn">Read more</button>
+        </div>
+
+    </div>
+</div>
+<div class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div style="padding:15px">
+                    <div class="wrapper">
+                        <div class="content">
+                            <div class="text-center">
+                                <img src="~/Assets/gsicons/icon 7.png" height="60" />
+                                <a href="/Port/Portar"><h2 class="text-themecolor">Portar</h2></a>
+                                <p>Some text here.Some text here.Some text here.Some text here.Some text here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="product">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="text-themecolor">RECOMMENDATION FOR YOU</h2>
+        </div>
+        <hr class="offset-md">
+
+        <div class="row products">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-md-3 product">
+                    <div class="product-box">
+                        <a href="/Port/SinglePort?id=@item.Id" style="color:white;">
+                            <img src="@Url.Content(item.PrimaryImage)" alt="garage door" />
+
+                            <div class="content">
+                                <p class="price">@item.Price KR</p>
+                            </div>
+                            <button class="btn btn-themecolor btn-block btn-square"><h4>Go to product</h4></button>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@{
+    var prevDisabled = !Model.PreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.NextPage ? "disabled" : "";
+}
+
+<a class="btn @prevDisabled" asp-action="Index" asp-route-pagenumber="@(Model.PageIndex -1)">
+    Prev
+</a>
+<a class="btn @nextDisabled" asp-action="Index" asp-route-pagenumber="@(Model.PageIndex +1)">
+    Next
+</a>

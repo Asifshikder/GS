@@ -1,0 +1,114 @@
+﻿@model GS.WEB.Areas.Manage.Models.Catelog.ColorViewModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Update</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Color</a></li>
+                            <li><a href="/Manage/Color/Index">Index</a></li>
+                            <li><a>Update</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new Color</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Manage" asp-controller="Color" asp-action="Update" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        @Html.HiddenFor(s=>s.Id)
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Name</label>
+                                            <input type="text" asp-for="ColorName" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Sample Image</label>
+                                            <input type="file" asp-for="SampleImageFile" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                            <a href="/Manage/Color/Index" class="btn btn-warning">Cancel</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <p>Current Image</p>
+                                                <div>
+                                                    @Html.HiddenFor(s=>s.ColorSamplmage)
+                                                    <img  src="@Url.Content(Model.ColorSamplmage)" height="200" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <img id="chngeimg" src="#" height="200" />
+                                            </div>
+                                            <div>
+                                                <button id="rmvimg">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            function imagePreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#chngeimg').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#SampleImageFile").change(function () {
+                imagePreview(this);
+            });
+            $("#rmvimg").click(function (e) {
+                e.preventDefault();
+                $("#SampleImageFile").val("");
+                $('#chngeimg').attr('src', "#");
+
+            });
+        });
+    </script>
+
+
+}

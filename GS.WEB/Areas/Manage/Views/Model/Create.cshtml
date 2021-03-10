@@ -1,0 +1,106 @@
+﻿@model GS.WEB.Areas.Manage.Models.Catelog.ModelViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+@Html.AntiForgeryToken()
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Create</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a>Model</a></li>
+                            <li><a href="/Manage/Model/Index">Index</a></li>
+                            <li><a>Create</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new Model</strong>
+                        </div>
+                        <div class="card-body">
+                            <form href="/Manage/Model/Create" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Name</label>
+                                            <input type="text" asp-for="ModelName" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Model Logo</label>
+                                            <input type="file" asp-for="ModelLogoFile" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                            <a href="/Manage/Model/Index" class="btn btn-warning">Cancel</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <div>
+                                                <img id="chngeimg" src="#" height="200" />
+                                            </div>
+                                            <div>
+                                                <button id="rmvimg">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            function imagePreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#chngeimg').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#ModelLogoFile").change(function () {
+                imagePreview(this);
+            });
+            $("#rmvimg").click(function (e) {
+                e.preventDefault();
+                $("#ModelLogoFile").val("");
+                $('#chngeimg').attr('src', "#");
+
+            });
+        });
+    </script>
+
+
+}
